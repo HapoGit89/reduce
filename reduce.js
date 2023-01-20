@@ -8,7 +8,7 @@ Examples:
 
 function extractValue(arr, key) {
    return  arr.reduce(function(acc,val){
-        let entry = val[`${key}`]
+        const entry = val[`${key}`]
         acc.push(entry)
         return acc;
 
@@ -29,14 +29,14 @@ Examples:
 */
 
 function vowelCount(str) {
-    let strarr = Array.from(str);
-    return strarr.reduce(function(acc, el){
+    const strArr = Array.from(str);
+    return strArr.reduce(function(acc, el){
         if (!Object.keys(acc).some(function(e){ return el === e}) && "aeiou".includes(el)){
-            let charcount = 0
-            strarr.forEach(function(char){
-                if (char === el) {charcount += 1}
+            let charCount = 0
+            strArr.forEach(function(char){
+                if (char === el) {charCount += 1}
             })
-            acc[`${el}`] = charcount;
+            acc[`${el}`] = charCount;
         }
          return acc
     },{})
@@ -89,11 +89,11 @@ Examples:
 */
 
 function partition(arr, callback) {
-    let left = arr.reduce (function(acc, el){
+    const left = arr.reduce (function(acc, el){
         if(callback(el)){acc.push(el)}
         return acc 
     }, [])
-    let right = arr.reduce (function(acc, el){
+    const right = arr.reduce (function(acc, el){
         if(!callback(el)){acc.push(el)}
         return acc 
     }, [])
